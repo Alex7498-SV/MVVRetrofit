@@ -15,7 +15,7 @@ interface GithubService {
     fun getRepos(@Path("usuario") usuario:String) : Deferred<Response<List<GitHubRepo>>>
 
     companion object {
-        fun getRetrofit() : GithubService{
+        fun getGithubServices() : GithubService{
             return  Retrofit.Builder().addConverterFactory(MoshiConverterFactory.create())
                 .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .build().create(GithubService::class.java)
